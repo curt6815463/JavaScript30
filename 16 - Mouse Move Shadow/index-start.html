@@ -35,6 +35,30 @@
   </style>
 
 <script>
+let hero = document.querySelector('.hero');
+let text = hero.querySelector('h1');
+let walk = 100;
+
+function shadow(e) {
+  let {offsetWidth:width,offsetHeight:height} = hero;
+  let {offsetX:x,offsetY:y} = e;
+  if(this !== e.target){
+    x = x + e.target.offsetLeft;
+    y = y + e.target.offsetTop;
+  }
+
+  let xWalk = (x/width*walk)-walk/2;
+  console.log(x/width);
+  console.log(x/width*walk);
+  let yWalk = x/height*walk-walk/2;
+}
+
+
+
+hero.addEventListener('mousemove',shadow);
+</script>
+<script src="http://localhost:35729/livereload.js">
+
 </script>
 </body>
 </html>
