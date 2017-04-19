@@ -18,28 +18,62 @@
     }
 
     // Regular
+    console.log('dog');
 
     // Interpolated
+    console.log('dog %s','hi');
 
     // Styled
-
+    console.log('%c dog is dog','background:#eee;font-size:32px');
     // warning!
-
+    console.warn('warn');
     // Error :|
-
+    console.error("shit");
     // Info
-
+    console.info('info');
     // Testing
-
+    let p = document.querySelector('p');
+    console.assert(p.classList.contains('asd'),"wrong");
+    console.assert(1==2,"it's wrong");
     // clearing
-
+    console.clear();
     // Viewing DOM Elements
+    console.log(p);
+    console.dir(p);
 
+    console.clear();
     // Grouping together
+
+    dogs.forEach(dog =>{
+      console.group(`${dog.name}`);
+      console.log(`this is ${dog.name}`);
+      console.log(`this is a${dog.age}`);
+      console.log(`this is b${dog.name}`);
+      console.groupEnd(`${dog.name}`);
+    })
 
     // counting
 
+    console.count('a');
+    console.count('a');
+    console.count('a');
+    console.count('a');
+
+    console.count('a');
+    console.count('a');
+    console.clear();
     // timing
+    console.time('test');
+    fetch('https://api.github.com/users/wesbos')
+      .then(data => data.json())
+      .then(data =>{
+    console.timeEnd('test');
+        console.log(data);
+      })
+
+    console.table(dogs);
+  </script>
+  <script src='http://localhost:35729/livereload.js'>
 
   </script>
 </body>

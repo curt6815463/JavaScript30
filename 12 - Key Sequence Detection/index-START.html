@@ -7,6 +7,18 @@
 </head>
 <body>
 <script>
+  let db = [];
+  let key = 'curt';
+  window.addEventListener('keydown', function(e) {
+    db.push(e.key);
+
+    db.splice(-key.length-1,db.length-key.length);
+    if(db.join('').includes(key)){
+      console.log('ya');
+      cornify_add();
+    }
+    console.log(db);
+  });
 </script>
 </body>
 </html>

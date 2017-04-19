@@ -8,19 +8,50 @@
 
   <script>
     // start with strings, numbers and booleans
-
+    // let age = 100;
+    // let age2 = age;
+    // console.log(age,age2);
+    // age = 200;
+    // console.log(age,age2);
+    //
+    // let name = 'curt';
+    // let name2 = name;
+    // console.log(name,name2);
+    // name2 = 'kai';
+    // console.log(name,name2);
     // Let's say we have an array
     const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
 
     // and we want to make a copy of it.
-
     // You might think we can just do something like this:
-
     // however what happens when we update that array?
-
+    let team = players;
+    console.log(players,team);
+    team[3] = 'curt';
+    console.log(players,team);
     // now here is the problem!
 
     // oh no - we have edited the original array too!
+
+    //使用slice
+    // let team2 = team.slice();
+    // team2[0]="XDDD";
+    // console.log(team2,team);
+
+    //使用concat
+    // let team3 = [].concat(team);
+    // team3[0] = "ccc";
+    // console.log(team3,team);
+
+    //使用ES6
+    // let team4 = [...team];
+    // team4[0] = "ffuc";
+    // console.log(team4,team);
+
+    //使用array.from
+    // let team5 = Array.from(team);
+    // team5[0] = 'shit';
+    // console.log(team5,team);
 
     // Why? It's because that is an array reference, not an array copy. They both point to the same array!
 
@@ -35,9 +66,33 @@
     // now when we update it, the original one isn't changed
 
     // The same thing goes for objects, let's say we have a person object
+    const person = {
+      name: 'curt',
+      age:'5'
+    };
+
+    let copyPerson = person;
+    copyPerson.name = 'shit';
+
+    //object assign way
+    let person2 = Object.assign({},person,{age:21});
+    console.log(person2,person);
+
 
     // with Objects
 
+    const human = {
+      name : 'shit',
+      age : 5,
+      social : {
+        facebook: 'www.shit.com',
+        twitter: 'www.shitt.com'
+      }
+    }
+
+    let h1 = JSON.parse(JSON.stringify(human));
+    h1.social.facebook = 'www.fuck.com';
+    console.log(h1,human);
     // and think we make a copy:
 
     // how do we take a copy instead?
