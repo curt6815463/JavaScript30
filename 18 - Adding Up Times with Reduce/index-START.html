@@ -182,6 +182,23 @@
     </li>
   </ul>
 <script>
+  let timeNode = [...document.querySelectorAll('[data-time]')];
+  let totalSec = timeNode
+    .map(node => node.dataset.time) //[1:11,2:22]
+    .map(time => {
+      const [min,sec] = time.split(':').map(parseFloat);
+      return min*60 + sec;
+    })
+    .reduce((sum,sec) => {
+      return sum + sec;
+    })
+    console.log(totalSec);
+
+  let hour = Math.floor(totalSec / 3600);
+  let min = Math.floor(totalSec%3600/60);
+  let sec = totalSec % 3600 % 60;
+  console.log(hour,min,sec);
+
 </script>
 </body>
 </html>
