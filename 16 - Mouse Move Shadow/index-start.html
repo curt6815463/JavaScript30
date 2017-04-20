@@ -47,10 +47,17 @@ function shadow(e) {
     y = y + e.target.offsetTop;
   }
 
+  //再總寬為width中x佔了多少   佔了walk中的多少
+  //width = 5 , x = 1    walk = 100  >> 20%
   let xWalk = (x/width*walk)-walk/2;
-  console.log(x/width);
-  console.log(x/width*walk);
-  let yWalk = x/height*walk-walk/2;
+  let yWalk = (y/height*walk)-walk/2;
+
+  text.style.textShadow = `
+    ${xWalk}px ${yWalk}px 5px red,
+    ${xWalk*-1}px ${yWalk}px 5px blue,
+    ${xWalk}px ${yWalk*-1}px 5px yellow,
+    ${xWalk*-1}px ${yWalk*-1}px 5px green
+    `;
 }
 
 
